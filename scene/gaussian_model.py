@@ -130,7 +130,7 @@ class GaussianModel:
     # 从Point Cloud Data中创建数据, 学习率的变化因子
     def create_from_pcd(self, pcd: BasicPointCloud, spatial_lr_scale: float):
         self.spatial_lr_scale = spatial_lr_scale
-        fused_point_cloud = torch.tensor(np.asarray(pcd.points)).float().cuda()  # 保存电云数据， 维度就是点云的点数
+        fused_point_cloud = torch.tensor(np.asarray(pcd.points)).float().cuda()  # 保存点云数据， 维度就是点云的点数
         fused_color = RGB2SH(torch.tensor(np.asarray(pcd.colors)).float().cuda())  # 把RGB转换为球谐系数
         # features 维度就是高斯分布的总数， 3为球谐函数的系数的数量，3就是3个通道 每个球谐函数系数的数量
         features = torch.zeros((fused_color.shape[0], 3, (self.max_sh_degree + 1) ** 2)).float().cuda()  # 存球谐函数的系数
