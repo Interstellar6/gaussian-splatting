@@ -1,6 +1,11 @@
 *.pyc
+.idea
 **/__pycache__
 *.log
 cmake-build-debug
 SIBR_viewers
 build
+
+!CMakeList.txt
+
+!submodules/diff-gaussian-rasterization/cuda_rasterizer
